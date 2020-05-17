@@ -17,7 +17,9 @@ public class PlayerInput {
     private int keyPressed;
 
     public void keyPressed(KeyEvent keyPressed) {
+        
         this.keyPressed = keyPressed.getKeyCode();
+        System.out.println("CURRENT:" + current);
         if (current != null && !colisionCheck()) {
             if (this.keyPressed == KeyEvent.VK_A || this.keyPressed == KeyEvent.VK_LEFT) {
                 current.moveLeft();
@@ -41,7 +43,6 @@ public class PlayerInput {
     private boolean colisionCheck() {
         double futureX;
         int aux = 0;
-
         if (keyPressed == KeyEvent.VK_Q) {
             current.leftRotation();
             for (Block cb : current.getBlocks()) {

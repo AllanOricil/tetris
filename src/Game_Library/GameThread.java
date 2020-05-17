@@ -8,6 +8,7 @@ import java.awt.image.BufferStrategy;
 import java.util.logging.Logger;
 import org.tetris.indie.allan.PlayerInput;
 import static Game_Library.GeneralConfiguration.*;
+import org.tetris.indie.allan.Tetris;
 
 /**
  *
@@ -18,15 +19,12 @@ public class GameThread extends Canvas implements Runnable {
     private GameStateEnum GAME_STATE;
 
     private PlayerInput player;
-    private static GameScene currentScene;
+    private static Tetris currentScene;
     private Thread gameThread;
 
     public GameThread() {
         GAME_STATE = GameStateEnum.RUNNING;
-
         player = new PlayerInput();
-        //currentScene.setPlayer(player);
-        addKeyListener(new GameKeyBoardAdapter(player));
     }
 
     public synchronized void start() {
@@ -36,6 +34,8 @@ public class GameThread extends Canvas implements Runnable {
             GAME_STATE = GameStateEnum.RUNNING;
         }
         gameThread = new Thread(this);
+        
+        this.addKeyListener(new GameKeyBoardAdapter(player));
         gameThread.start();
     }
 
@@ -167,7 +167,7 @@ public class GameThread extends Canvas implements Runnable {
     }
 
     protected void setCurrentScene(GameScene currentScene) {
-        this.currentScene = currentScene;
+        this.currentScene = (Tetris)currentScene;
     }
 
 }

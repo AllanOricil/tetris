@@ -44,7 +44,7 @@ public class GamePanel extends GameEntity {
 
     @Override
     public void draw(Graphics2D g2d) {
-        g2d.setColor(getBackgroundColor());
+        g2d.setColor(new Color(180,180,180));
         g2d.fillRect(pos.getX(), pos.getY(), size.width, size.height);
         if (entity != null) {
             entity.draw(g2d);

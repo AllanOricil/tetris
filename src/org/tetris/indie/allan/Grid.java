@@ -157,7 +157,8 @@ public class Grid extends GameEntity {
             scene.setState(GameStateEnum.PAUSED);
         } else {
             setCurrent(generator.getNext());
-
+           
+            
             for (int i = 0; i < number_blocks_line.length; i++) {
                 if (number_blocks_line[i] == NUM_BLOCKS_HORIZONTALLY) {
                     deleteGridLine(i);

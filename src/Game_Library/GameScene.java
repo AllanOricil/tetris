@@ -19,7 +19,7 @@ import org.tetris.indie.allan.PlayerInput;
 public abstract class GameScene{
 
     private final List<GameEntity> entities;
-    private PlayerInput player;
+    public PlayerInput player;
     private GameStateEnum gameState;
     private String name;
     private List<GameCamera> cameras;

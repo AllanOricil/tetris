@@ -29,16 +29,16 @@ public class Tetris extends GameScene {
     public static int GAP_GRID_PIECE_GENERATOR;
     private final Grid grid;
     private final HeadsUpDisplay hud;
-
     public static Font FONT_NUMBERS;
     public static Font FONT_NAMES;
 
-    public Tetris() {
+    public Tetris(PlayerInput player) {
         System.out.println("CRIOU");
         setGameProperties();
         super.setName("Level");
         hud = new HeadsUpDisplay();
         grid = new Grid(this);
+        this.setPlayer(player);
         this.getEntities().add(grid);
         getCameras().get(0).setHud(hud);
     }
@@ -150,7 +150,6 @@ public class Tetris extends GameScene {
         for(GameCamera cam: getCameras()){
             cam.update();
         }
-        System.out.println("OL:A");
     }
 
     @Override
@@ -168,5 +167,9 @@ public class Tetris extends GameScene {
     public HeadsUpDisplay getHud() {
         return hud;
     }
-
+ 
+    
+    public PlayerInput getPlayer(){
+        return player;
+    }
 }

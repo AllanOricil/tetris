@@ -37,7 +37,7 @@ public class Scenes {
 //        pieces = new GameScene("pieces");
 //        grid = new GameScene("grid");
         //THIS ONE CONTROLS THE GAME THAT IS BEING PLAYED
-        game = new Tetris();
+        
                 
         sceneManager = new GameSceneManager();
   

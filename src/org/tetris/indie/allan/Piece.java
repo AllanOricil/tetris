@@ -6,7 +6,6 @@
 package org.tetris.indie.allan;
 
 import Game_Library.Vector2D;
-import Game_Library.Drawable;
 import Game_Library.GameEntity;
 import java.awt.Color;
 import java.awt.Graphics2D;

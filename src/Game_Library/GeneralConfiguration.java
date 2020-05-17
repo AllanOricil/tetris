@@ -11,7 +11,7 @@ package Game_Library;
  */
 public abstract class GeneralConfiguration {
 
-    public static final boolean DEVELOPER_MODE = true;
+    public static final boolean DEVELOPER_MODE = false;
 
     public final static double GAME_FPS = 30;
         

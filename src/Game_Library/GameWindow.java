@@ -43,10 +43,10 @@ public class GameWindow {
         frame = new JFrame(name);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         frame.setUndecorated(!windowedMode);
-        if (fullScreenMode) {
-//            frame.setSize(new Dimension((int) fullScreenWidthSize,
-//                    (int) fullScreenHeightSize));
-            frame.setSize(1920,1080);
+        if (!fullScreenMode) {
+            frame.setSize(new Dimension((int) fullScreenWidthSize,
+                    (int) fullScreenHeightSize));
+            //frame.setSize(1920,1080);
         } else {
             frame.setSize(new Dimension(DEFAULT_SCREEN_WIDTH,
                     DEFAULT_SCREEN_HEIGHT));
@@ -114,4 +114,10 @@ public class GameWindow {
     public void addGameScene(GameScene scene) {
         gameThread.setCurrentScene(scene);
     }
+
+    public GameThread getGameThread() {
+        return gameThread;
+    }
+    
+    
 }
