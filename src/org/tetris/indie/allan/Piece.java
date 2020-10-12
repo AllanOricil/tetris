@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.tetris.indie.allan;
 
 import Game_Library.Vector2D;
@@ -23,11 +19,7 @@ import static org.tetris.indie.allan.Grid.GRID_LEFT;
 import static org.tetris.indie.allan.Grid.GRID_RIGHT;
 import static org.tetris.indie.allan.PieceType.OPIECE;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
-public class Piece extends GameEntity{
+public class Piece extends GameEntity {
 
     private Color color;
     private Block[] blocks;
@@ -35,7 +27,7 @@ public class Piece extends GameEntity{
     private PieceType type;
 
     private int count_time_elapsed;
-    
+
     public static int PIECE_WIDTH;
     public static int INITIAL_POS_PIECE_GRID_X;
     public static int INITIAL_POS_PIECE_GRID_Y;
@@ -44,22 +36,17 @@ public class Piece extends GameEntity{
     public static int TIME_PIECE_GO_DOWN;
 
     public Piece(Piece piece) {
-        createPiece(piece.type,
-                INITIAL_POS_PIECE_GRID_X,
-                INITIAL_POS_PIECE_GRID_Y);
+        createPiece(piece.type, INITIAL_POS_PIECE_GRID_X, INITIAL_POS_PIECE_GRID_Y);
     }
 
     public Piece(PieceType type) {
-        createPiece(type,
-                INITIAL_POS_PIECE_GRID_X,
-                INITIAL_POS_PIECE_GRID_Y);
+        createPiece(type, INITIAL_POS_PIECE_GRID_X, INITIAL_POS_PIECE_GRID_Y);
     }
 
     public Piece(PieceType type, int x, int y) {
         createPiece(type, x, y);
     }
-    
-    
+
     @Override
     public void draw(Graphics2D g2d) {
         for (Block block : blocks) {

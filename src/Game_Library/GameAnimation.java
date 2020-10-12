@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library;
 
 import static Game_Library.GeneralConfiguration.GAME_FPS;
 import java.awt.Graphics2D;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class GameAnimation extends GameEntity {
 
     private GameSprite sprites[];
@@ -26,7 +18,7 @@ public class GameAnimation extends GameEntity {
         currentImage = 0;
         state = GameStateEnum.PAUSED;
     }
-    
+
     /**
      * This method resume the animation
      */
@@ -37,6 +29,7 @@ public class GameAnimation extends GameEntity {
             state = GameStateEnum.RUNNING;
         }
     }
+
     /**
      * This method pause the animation
      */
@@ -47,11 +40,12 @@ public class GameAnimation extends GameEntity {
             state = GameStateEnum.PAUSED;
         }
     }
+
     /**
      * This method reset the animation
      */
-    public void stop(){
-        if(state != GameStateEnum.STOPED){
+    public void stop() {
+        if (state != GameStateEnum.STOPED) {
             contTicks = 0;
             currentImage = 0;
             state = GameStateEnum.STOPED;
@@ -73,10 +67,7 @@ public class GameAnimation extends GameEntity {
 
     @Override
     public void draw(Graphics2D g2d) {
-        g2d.drawImage(sprites[currentImage].getImage(),
-                pos.getX(), pos.getY(),
-                size.width, size.height,
-                null);
+        g2d.drawImage(sprites[currentImage].getImage(), pos.getX(), pos.getY(), size.width, size.height, null);
     }
 
     public GameSprite[] getSprites() {

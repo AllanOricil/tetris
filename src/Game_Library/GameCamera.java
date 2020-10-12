@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library;
 
 import Game_Library.Graphical_User_Interface_Entities.GamePanel;
@@ -14,13 +10,9 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class GameCamera implements Drawable {
 
-    public List<GameEntity> entitiesToRender; //the ones that are going to be drawn
+    public List<GameEntity> entitiesToRender; // the ones that are going to be drawn
     private GameScene scene;
 
     private GamePanel panel;
@@ -47,7 +39,7 @@ public class GameCamera implements Drawable {
 
     @Override
     public void draw(Graphics2D g2d) {
-        //DRAW THE GAME ENTITIES THAT CAN BE SEEN IN THE SCENE
+        // DRAW THE GAME ENTITIES THAT CAN BE SEEN IN THE SCENE
         panel.draw(g2d);
         if (!entitiesToRender.isEmpty()) {
             for (GameEntity entity : entitiesToRender) {
@@ -56,12 +48,12 @@ public class GameCamera implements Drawable {
                 entity.draw(g2d);
             }
         }
-        //DRAW THE HUD OVER ALL THE ENTITIES
+        // DRAW THE HUD OVER ALL THE ENTITIES
         if (hud != null) {
             hud.draw(g2d);
         }
-        
-        //Release memory
+
+        // Release memory
         entitiesToRender.clear();
 
     }

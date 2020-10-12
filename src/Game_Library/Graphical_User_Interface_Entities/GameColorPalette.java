@@ -1,19 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library.Graphical_User_Interface_Entities;
 
 import Game_Library.GameEntity;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
-public class GameColorPalette extends GameEntity{
+public class GameColorPalette extends GameEntity {
 
     private final static Color[] PALETTE_COLORS = new Color[9];
     private final static Color COLOR_PALETTE_1 = new Color(0x98E1C9);
@@ -28,7 +20,7 @@ public class GameColorPalette extends GameEntity{
 
     private Color color_choosen;
     private Color default_color;
-    
+
     public static boolean draw;
 
     public static int PALETTE_WIDTH;
@@ -67,17 +59,11 @@ public class GameColorPalette extends GameEntity{
     public void draw(Graphics2D g2d) {
         for (int i = 0; i < 9; i++) {
             g2d.setColor(PALETTE_COLORS[i]);
-            g2d.fillRect(getPos().getX() + i * (rectSize),
-                    getPos().getY(),
-                    rectSize,
-                    PALETTE_HEIGHT);
+            g2d.fillRect(getPos().getX() + i * (rectSize), getPos().getY(), rectSize, PALETTE_HEIGHT);
         }
 
         g2d.setColor(Color.BLACK);
-        g2d.drawRect(getPos().getX(),
-                getPos().getY(),
-                PALETTE_WIDTH,
-                PALETTE_HEIGHT);
+        g2d.drawRect(getPos().getX(), getPos().getY(), PALETTE_WIDTH, PALETTE_HEIGHT);
         g2d.setColor(Color.BLACK);
         g2d.drawPolygon(t_x, t_y, t_x.length);
     }

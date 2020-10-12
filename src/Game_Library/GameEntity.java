@@ -5,10 +5,6 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.event.KeyListener;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public abstract class GameEntity implements Drawable {
 
     protected Vector2D pos;
@@ -23,13 +19,13 @@ public abstract class GameEntity implements Drawable {
     public GameKeyBoardAdapter keyListener;
 
     public GameEntity() {
-        pos = new Vector2D(0,0);
-        size = new Dimension(100,100);
+        pos = new Vector2D(0, 0);
+        size = new Dimension(100, 100);
         backgroundColor = Color.WHITE;
         depth = 100;
         id = numGameEntities;
         numGameEntities++;
-        //System.out.println("IDAUX: " + counter);
+        // System.out.println("IDAUX: " + counter);
     }
 
     public Vector2D getPos() {
@@ -66,12 +62,9 @@ public abstract class GameEntity implements Drawable {
 
     @Override
     public void draw(Graphics2D g2d) {
-        //DRAW THE BACKGROUND
+        // DRAW THE BACKGROUND
         g2d.setColor(getBackgroundColor());
-        g2d.fillRect(pos.getX(),
-                pos.getY(),
-                size.width,
-                size.height);
+        g2d.fillRect(pos.getX(), pos.getY(), size.width, size.height);
     }
 
     public int getDepth() {

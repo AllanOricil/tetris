@@ -1,21 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library.Graphical_User_Interface_Entities;
 
 import Game_Library.GameGUI;
 import java.awt.Graphics2D;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
-public class GameButton extends GameGUI{
+public class GameButton extends GameGUI {
 
     public GameLabel label;
-    
+
     private boolean activate;
 
     public GameButton(String text) {

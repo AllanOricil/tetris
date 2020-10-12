@@ -6,10 +6,6 @@ import static org.tetris.indie.allan.Grid.GRID_LEFT;
 import static org.tetris.indie.allan.Grid.GRID_RIGHT;
 import static org.tetris.indie.allan.Piece.PIECE_WIDTH;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class PlayerInput {
 
     private Piece current;
@@ -17,7 +13,7 @@ public class PlayerInput {
     private int keyPressed;
 
     public void keyPressed(KeyEvent keyPressed) {
-        
+
         this.keyPressed = keyPressed.getKeyCode();
         System.out.println("CURRENT:" + current);
         if (current != null && !colisionCheck()) {
@@ -33,7 +29,7 @@ public class PlayerInput {
                 current.moveDown();
             }
         }
-        
+
     }
 
     public void KeyReleased(KeyEvent keyPressed) {
@@ -51,8 +47,7 @@ public class PlayerInput {
                     return true;
                 }
                 for (Block gd : grid.getGridBlocks()) {
-                    if (cb.getPos().getX() == gd.getPos().getX()
-                            && cb.getPos().getY() == gd.getPos().getY()) {
+                    if (cb.getPos().getX() == gd.getPos().getX() && cb.getPos().getY() == gd.getPos().getY()) {
                         current.rightRotation();
                         return true;
                     }
@@ -70,8 +65,7 @@ public class PlayerInput {
                     return true;
                 }
                 for (Block gd : grid.getGridBlocks()) {
-                    if (cb.getPos().getX() == gd.getPos().getX()
-                            && cb.getPos().getY() == gd.getPos().getY()) {
+                    if (cb.getPos().getX() == gd.getPos().getX() && cb.getPos().getY() == gd.getPos().getY()) {
                         current.leftRotation();
                         return true;
                     }
@@ -89,19 +83,18 @@ public class PlayerInput {
             aux = PIECE_WIDTH;
         }
 
-        //COLISION WITH THE RIGT AND LEFT SIDES OF THE GRID PIECES
+        // COLISION WITH THE RIGT AND LEFT SIDES OF THE GRID PIECES
         for (Block cb : current.getBlocks()) {
             futureX = cb.getPos().getX() + aux;
             if (futureX > GRID_RIGHT - aux || futureX < GRID_LEFT) {
                 return true;
             }
         }
-        //COLISION WITH THE RIGHT AND LEFT SIDES OF THE GRID
+        // COLISION WITH THE RIGHT AND LEFT SIDES OF THE GRID
         for (Block cb : current.getBlocks()) {
             futureX = cb.getPos().getX() + aux;
             for (Block gd : grid.getGridBlocks()) {
-                if (futureX == gd.getPos().getX()
-                        && cb.getPos().getY() == gd.getPos().getY()) {
+                if (futureX == gd.getPos().getX() && cb.getPos().getY() == gd.getPos().getY()) {
                     return true;
                 }
             }

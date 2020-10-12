@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.tetris.indie.allan;
 
 import Game_Library.GameCamera;
@@ -20,10 +16,6 @@ import static Game_Library.Graphical_User_Interface_Entities.GamePlayerLevelCoun
 import static Game_Library.Graphical_User_Interface_Entities.GameTimer.*;
 import java.awt.Font;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class Tetris extends GameScene {
 
     public static int GAP_GRID_PIECE_GENERATOR;
@@ -103,8 +95,7 @@ public class Tetris extends GameScene {
 
         GAP_GRID_PIECE_GENERATOR = GAP_NUMBER_BLOCKS * PIECE_WIDTH;
 
-        INITIAL_POS_PIECE_GRID_X = GRID_LEFT
-                + ((NUM_BLOCKS_HORIZONTALLY / 2) - 1) * PIECE_WIDTH;
+        INITIAL_POS_PIECE_GRID_X = GRID_LEFT + ((NUM_BLOCKS_HORIZONTALLY / 2) - 1) * PIECE_WIDTH;
         INITIAL_POS_PIECE_GRID_Y = GRID_TOP - 3 * PIECE_WIDTH;
 
         POS_SCORE_X = GRID_LEFT;
@@ -131,8 +122,7 @@ public class Tetris extends GameScene {
         POS_PG_X = PG_CENTER_X;
         POS_PG_Y = PG_BOTTOM + PIECE_WIDTH;
 
-        LEVELS_TO_DECREASE_TIME_TO_PIECE_GO_DOWN_AFTER = NUMBER_OF_LEVELS
-                / (START_TIME_TO_PIECE_GO_DOWN - 2);
+        LEVELS_TO_DECREASE_TIME_TO_PIECE_GO_DOWN_AFTER = NUMBER_OF_LEVELS / (START_TIME_TO_PIECE_GO_DOWN - 2);
 
         PALETTE_WIDTH = 9 * PIECE_WIDTH;
         PALETTE_HEIGHT = PIECE_WIDTH;
@@ -145,9 +135,9 @@ public class Tetris extends GameScene {
             hud.getTimer().update();
             grid.update();
         }
-        
-        //Update each of the cameras presented in the scene
-        for(GameCamera cam: getCameras()){
+
+        // Update each of the cameras presented in the scene
+        for (GameCamera cam : getCameras()) {
             cam.update();
         }
     }
@@ -167,9 +157,8 @@ public class Tetris extends GameScene {
     public HeadsUpDisplay getHud() {
         return hud;
     }
- 
-    
-    public PlayerInput getPlayer(){
+
+    public PlayerInput getPlayer() {
         return player;
     }
 }

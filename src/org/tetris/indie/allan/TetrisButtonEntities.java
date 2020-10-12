@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.tetris.indie.allan;
 
 import Game_Library.Graphical_User_Interface_Entities.GameButton;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public abstract class TetrisButtonEntities {
 
     public static final GameButton b1 = new GameButton("START");

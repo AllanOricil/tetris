@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library.Graphical_User_Interface_Entities;
 
 import Game_Library.GameEntity;
@@ -13,10 +9,6 @@ import java.awt.Graphics2D;
 import static Game_Library.GameWindow.WINDOW_HEIGHT;
 import static Game_Library.GameWindow.WINDOW_WIDTH;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class GamePanel extends GameEntity {
 
     private GameEntity entity;
@@ -44,7 +36,7 @@ public class GamePanel extends GameEntity {
 
     @Override
     public void draw(Graphics2D g2d) {
-        g2d.setColor(new Color(180,180,180));
+        g2d.setColor(new Color(180, 180, 180));
         g2d.fillRect(pos.getX(), pos.getY(), size.width, size.height);
         if (entity != null) {
             entity.draw(g2d);
@@ -68,9 +60,9 @@ public class GamePanel extends GameEntity {
         this.entity.setPos(pos);
         this.entity.update();
     }
-    
-    public void setBackGroundColor(Color color){
+
+    public void setBackGroundColor(Color color) {
         super.setBackgroundColor(color);
     }
-    
+
 }

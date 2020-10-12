@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library.Graphical_User_Interface_Entities;
 
 import Game_Library.GameGUI;
@@ -23,10 +19,6 @@ import java.util.List;
 import static org.tetris.indie.allan.Configuration.MENU_NAME_COLOR;
 import static org.tetris.indie.allan.Tetris.FONT_NUMBERS;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class GameMenu extends GameGUI {
 
     private GameLabel title;
@@ -46,21 +38,18 @@ public class GameMenu extends GameGUI {
         buttonsFont = FONT_NUMBERS;
         buttonsColor = MENU_NAME_COLOR;
         setBackgroundColor(Color.GRAY);
-        background = new GamePanel(new Vector2D(0, 0),
-                new Dimension(WINDOW_WIDTH, WINDOW_WIDTH));
+        background = new GamePanel(new Vector2D(0, 0), new Dimension(WINDOW_WIDTH, WINDOW_WIDTH));
         titleLocation = Positions.NORTH;
         location = Positions.CENTER;
         buttons = new ArrayList<>();
     }
 
     public GameMenu(String title, ArrayList<String> string) {
-        this.title = this.title = new GameLabel(title,
-                Color.BLACK, FONT_NUMBERS);
+        this.title = this.title = new GameLabel(title, Color.BLACK, FONT_NUMBERS);
         buttonsFont = FONT_NUMBERS;
         buttonsColor = MENU_NAME_COLOR;
         setBackgroundColor(Color.GRAY);
-        background = new GamePanel(new Vector2D(0, 0),
-                new Dimension(WINDOW_WIDTH, WINDOW_WIDTH));
+        background = new GamePanel(new Vector2D(0, 0), new Dimension(WINDOW_WIDTH, WINDOW_WIDTH));
         titleLocation = Positions.NORTH;
         location = Positions.CENTER;
         buttons = new ArrayList<>();
@@ -72,8 +61,7 @@ public class GameMenu extends GameGUI {
         buttonsFont = FONT_NUMBERS;
         buttonsColor = MENU_NAME_COLOR;
         setBackgroundColor(Color.GRAY);
-        background = new GamePanel(new Vector2D(0, 0),
-                new Dimension(WINDOW_WIDTH, WINDOW_WIDTH));
+        background = new GamePanel(new Vector2D(0, 0), new Dimension(WINDOW_WIDTH, WINDOW_WIDTH));
         titleLocation = Positions.NORTH;
         location = Positions.CENTER;
         buttons = new ArrayList<>();
@@ -83,20 +71,19 @@ public class GameMenu extends GameGUI {
     @Override
     public void draw(Graphics2D g2d) {
         int x;
-        //DRAW THE BACKGROUND
+        // DRAW THE BACKGROUND
         background.draw(g2d);
-        //DRAW THE TITLE
+        // DRAW THE TITLE
         title.draw(g2d);
-        //DRAW BUTTONS
+        // DRAW BUTTONS
         g2d.setColor(buttonsColor);
         g2d.setFont(buttonsFont);
         for (GameButton button : buttons) {
             button.draw(g2d);
         }
-        //DRAW THE MIDDLE LINE
+        // DRAW THE MIDDLE LINE
         g2d.setStroke(new BasicStroke(middleLineStroke));
-        x = title.getPos().x + title.getSize().width + middleLineStroke
-                + spaceBetweenLineAndButtons;
+        x = title.getPos().x + title.getSize().width + middleLineStroke + spaceBetweenLineAndButtons;
         g2d.drawLine(x, getPos().y, x, getPos().y + getSize().height);
     }
 
@@ -108,25 +95,22 @@ public class GameMenu extends GameGUI {
         Rectangle fontRect;
         Point posAux = new Point();
 
-        //GET THE TITLE FONT SIZE
-        fontRect = GameLabel.getStringBounds(title.getText(),
-                title.getFont(), 0, 0);
+        // GET THE TITLE FONT SIZE
+        fontRect = GameLabel.getStringBounds(title.getText(), title.getFont(), 0, 0);
         title.setSize(fontRect.getSize());
 
-        //GET THE BUTTONS FONT SIZE
+        // GET THE BUTTONS FONT SIZE
         for (GameButton button : buttons) {
-            fontRect = GameLabel.getStringBounds(button.label.getText(),
-                    buttonsFont, 0, 0);
+            fontRect = GameLabel.getStringBounds(button.label.getText(), buttonsFont, 0, 0);
             button.setSize(fontRect.getSize());
         }
 
-        //DETERMINE THE TOTAL WIDTH OF THE MENU
-        getSize().width = title.getSize().width
-                + getLargeButtonWidth() + 2 * middleLineStroke
+        // DETERMINE THE TOTAL WIDTH OF THE MENU
+        getSize().width = title.getSize().width + getLargeButtonWidth() + 2 * middleLineStroke
                 + 2 * spaceBetweenLineAndButtons;
         centerX = getSize().width / 2;
 
-        //DETERMINE THE TOTAL HEIGHT OF THE MENU
+        // DETERMINE THE TOTAL HEIGHT OF THE MENU
         if (!buttons.isEmpty()) {
             getSize().height = ((buttons.size() - 1) * spaceBetweenButtons)
                     + (buttons.size() * buttons.get(0).getSize().height);
@@ -134,15 +118,15 @@ public class GameMenu extends GameGUI {
             getSize().height = 0;
         }
 
-        //SET THE POSITION OF THE MENU IN THE SCREEN
+        // SET THE POSITION OF THE MENU IN THE SCREEN
         setLocation();
 
-        //DETERMINE THE CENTER, TOP AND BOTTON OF THE MENU
+        // DETERMINE THE CENTER, TOP AND BOTTON OF THE MENU
         centerY = getSize().height / 2;
         botton = getPos().y + getSize().height;
         top = getPos().y;
 
-        //SET THE TITLES POSITION
+        // SET THE TITLES POSITION
         posAux.x = getPos().x + middleLineStroke - spaceBetweenLineAndButtons;
 
         switch (titleLocation) {
@@ -155,11 +139,10 @@ public class GameMenu extends GameGUI {
         }
         title.setPos(posAux);
 
-        //SET THE BUTTONS POSITION
+        // SET THE BUTTONS POSITION
         for (int i = 0; i < buttons.size(); i++) {
             GameButton button = buttons.get(i);
-            posAux.x = getPos().x + 2 * middleLineStroke
-                    + spaceBetweenLineAndButtons + title.getSize().width;
+            posAux.x = getPos().x + 2 * middleLineStroke + spaceBetweenLineAndButtons + title.getSize().width;
             int tam = i * (button.getSize().height + spaceBetweenButtons);
             posAux.y = top + tam + button.getSize().height;
             button.setPos(posAux);
@@ -223,7 +206,7 @@ public class GameMenu extends GameGUI {
     public Font getButtonsFont() {
         return buttonsFont;
     }
-    
+
     public void setButtonsFont(Font buttonsFont) {
         this.buttonsFont = buttonsFont;
     }

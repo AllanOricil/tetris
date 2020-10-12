@@ -11,7 +11,7 @@ import static Game_Library.GeneralConfiguration.WINDOW_FULLSCREEN_MODE;
 import static Game_Library.GeneralConfiguration.WINDOW_WINDOWED_MODE;
 
 /**
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
+ * @author Allan Oricil - Computer Engineer
  */
 public class GameWindow {
 
@@ -31,7 +31,7 @@ public class GameWindow {
     /**
      *
      * @param name - Name of the game. It will be displayed in the top left hand
-     * corner of the screen, if it is not in full screen
+     *             corner of the screen, if it is not in full screen
      */
     public GameWindow(String name) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -44,12 +44,10 @@ public class GameWindow {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         frame.setUndecorated(!windowedMode);
         if (!fullScreenMode) {
-            frame.setSize(new Dimension((int) fullScreenWidthSize,
-                    (int) fullScreenHeightSize));
-            //frame.setSize(1920,1080);
+            frame.setSize(new Dimension((int) fullScreenWidthSize, (int) fullScreenHeightSize));
+            // frame.setSize(1920,1080);
         } else {
-            frame.setSize(new Dimension(DEFAULT_SCREEN_WIDTH,
-                    DEFAULT_SCREEN_HEIGHT));
+            frame.setSize(new Dimension(DEFAULT_SCREEN_WIDTH, DEFAULT_SCREEN_HEIGHT));
         }
         WINDOW_WIDTH = frame.getSize().width;
         WINDOW_HEIGHT = frame.getSize().height;
@@ -118,6 +116,5 @@ public class GameWindow {
     public GameThread getGameThread() {
         return gameThread;
     }
-    
-    
+
 }

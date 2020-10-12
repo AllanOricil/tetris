@@ -10,10 +10,6 @@ import org.tetris.indie.allan.PlayerInput;
 import static Game_Library.GeneralConfiguration.*;
 import org.tetris.indie.allan.Tetris;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class GameThread extends Canvas implements Runnable {
 
     private GameStateEnum GAME_STATE;
@@ -34,7 +30,7 @@ public class GameThread extends Canvas implements Runnable {
             GAME_STATE = GameStateEnum.RUNNING;
         }
         gameThread = new Thread(this);
-        
+
         this.addKeyListener(new GameKeyBoardAdapter(player));
         gameThread.start();
     }
@@ -56,12 +52,10 @@ public class GameThread extends Canvas implements Runnable {
     public void renderGame(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        //DRAW EVERYTHING THE CAMERAS CAN SEE
+        // DRAW EVERYTHING THE CAMERAS CAN SEE
         for (GameCamera cam : currentScene.getCameras()) {
             cam.draw(g2d);
         }
@@ -91,36 +85,37 @@ public class GameThread extends Canvas implements Runnable {
         int countTimeToMovePieceDown = 0;
         double spaceTimePerFrame = (1 / GAME_FPS) * 1000;
         while (GAME_STATE == GameStateEnum.RUNNING) {
-            //GET THE CURRENT TIME BEFORE START THE GAME UPDATES AND RENDER
+            // GET THE CURRENT TIME BEFORE START THE GAME UPDATES AND RENDER
             startTime = System.currentTimeMillis();
 
             if (currentScene != null) {
-                //UPDATE ALL THE SCENES
+                // UPDATE ALL THE SCENES
                 currentScene.update();
 
-                //THEN RENDER THESE SCENES
+                // THEN RENDER THESE SCENES
                 render();
             }
-            //GET THE TIME AFTER THE GAME UPDATES AND RENDER
+            // GET THE TIME AFTER THE GAME UPDATES AND RENDER
             endTime = System.currentTimeMillis();
 
-            //CALCULATE THE TIME THAT HAS BEEN SPENT TO UPDATE AND RENDER THE SCENE
+            // CALCULATE THE TIME THAT HAS BEEN SPENT TO UPDATE AND RENDER THE SCENE
             long delta = endTime - startTime;
 
-            //IF THE TIME SPENT TO RENDER THE SCENE IS LESS THAN THE TIME 
-            //TO RENDER ONE SCENE(DETERMINED BY THE FPS OF THE GAME) THEN 
-            //TO RENDER THE NEXT SCENE THE GAMETHREAD HAS TO SLEEP EXACTLY
-            //THE AMOUNT OF TIME LEFT TO RENDER THE PREVIOUS SCENE.
-            //BUT, IF THE SCENE HAS TAKEN MORE TIME TO RENDER ITSELF, 
-            //THE GAMETHREAD HAS TO SLEEP UNTIL THE NEXT SCENE STARTS
-            if (delta < spaceTimePerFrame) { //if the frame is to fast
+            // IF THE TIME SPENT TO RENDER THE SCENE IS LESS THAN THE TIME
+            // TO RENDER ONE SCENE(DETERMINED BY THE FPS OF THE GAME) THEN
+            // TO RENDER THE NEXT SCENE THE GAMETHREAD HAS TO SLEEP EXACTLY
+            // THE AMOUNT OF TIME LEFT TO RENDER THE PREVIOUS SCENE.
+            // BUT, IF THE SCENE HAS TAKEN MORE TIME TO RENDER ITSELF,
+            // THE GAMETHREAD HAS TO SLEEP UNTIL THE NEXT SCENE STARTS
+            if (delta < spaceTimePerFrame) { // if the frame is to fast
                 try {
                     Thread.sleep((long) (spaceTimePerFrame - delta));
                 } catch (InterruptedException ex) {
                     Logger.getLogger(GameThread.class.getName()).log(null, null, ex);
                 }
             } else {
-                try {//if the frame wasnt fast enought, render the late frame and wait until the next one
+                try {// if the frame wasnt fast enought, render the late frame and wait until the
+                     // next one
                     render();
                     Thread.sleep((long) (delta - spaceTimePerFrame));
                 } catch (InterruptedException ex) {
@@ -129,8 +124,8 @@ public class GameThread extends Canvas implements Runnable {
             }
 
         }
-        //IF THE GAMETHREAD IS NO LONGER RUNNING, KILL THE GAMETHREAD AND 
-        //EXIT THE APPLICATION
+        // IF THE GAMETHREAD IS NO LONGER RUNNING, KILL THE GAMETHREAD AND
+        // EXIT THE APPLICATION
         stop();
     }
 
@@ -167,7 +162,7 @@ public class GameThread extends Canvas implements Runnable {
     }
 
     protected void setCurrentScene(GameScene currentScene) {
-        this.currentScene = (Tetris)currentScene;
+        this.currentScene = (Tetris) currentScene;
     }
 
 }

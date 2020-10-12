@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library.Graphical_User_Interface_Entities;
 
 import Game_Library.GameGUI;
@@ -17,10 +13,6 @@ import static org.tetris.indie.allan.Piece.TIME_PIECE_GO_DOWN;
 import static org.tetris.indie.allan.Tetris.FONT_NAMES;
 import static org.tetris.indie.allan.Tetris.FONT_NUMBERS;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class GamePlayerLevelCounter extends GameGUI {
 
     private int level;

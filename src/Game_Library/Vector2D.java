@@ -2,10 +2,6 @@ package Game_Library;
 
 import java.awt.geom.Point2D;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class Vector2D {
 
     private int x;

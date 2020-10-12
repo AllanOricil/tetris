@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.tetris.indie.allan;
 
 import Game_Library.Drawable;
@@ -16,10 +12,6 @@ import static org.tetris.indie.allan.Configuration.PIECE_GENERATOR_NAME_COLOR;
 import static org.tetris.indie.allan.Piece.PIECE_WIDTH;
 import static org.tetris.indie.allan.Tetris.FONT_NAMES;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public final class PieceGenerator implements Drawable {
 
     private Piece next;
@@ -76,33 +68,19 @@ public final class PieceGenerator implements Drawable {
         int num = rand.nextInt(7);
 
         if (num == 0) {
-            return new Piece(PieceType.TPIECE,
-                    PG_CENTER_X - PIECE_WIDTH / 2,
-                    PG_CENTER_Y - PIECE_WIDTH);
+            return new Piece(PieceType.TPIECE, PG_CENTER_X - PIECE_WIDTH / 2, PG_CENTER_Y - PIECE_WIDTH);
         } else if (num == 1) {
-            return new Piece(PieceType.ZPIECE,
-                    PG_CENTER_X,
-                    PG_CENTER_Y - PIECE_WIDTH / 2);
+            return new Piece(PieceType.ZPIECE, PG_CENTER_X, PG_CENTER_Y - PIECE_WIDTH / 2);
         } else if (num == 2) {
-            return new Piece(PieceType.IPIECE,
-                    PG_CENTER_X - PIECE_WIDTH,
-                    PG_CENTER_Y - PIECE_WIDTH / 2);
+            return new Piece(PieceType.IPIECE, PG_CENTER_X - PIECE_WIDTH, PG_CENTER_Y - PIECE_WIDTH / 2);
         } else if (num == 3) {
-            return new Piece(PieceType.LPIECE,
-                    PG_CENTER_X - PIECE_WIDTH / 2,
-                    PG_CENTER_Y - PIECE_WIDTH);
+            return new Piece(PieceType.LPIECE, PG_CENTER_X - PIECE_WIDTH / 2, PG_CENTER_Y - PIECE_WIDTH);
         } else if (num == 4) {
-            return new Piece(PieceType.JPIECE,
-                    PG_CENTER_X - PIECE_WIDTH / 2,
-                    PG_CENTER_Y - PIECE_WIDTH);
+            return new Piece(PieceType.JPIECE, PG_CENTER_X - PIECE_WIDTH / 2, PG_CENTER_Y - PIECE_WIDTH);
         } else if (num == 5) {
-            return new Piece(PieceType.SPIECE,
-                    PG_CENTER_X - PIECE_WIDTH / 2,
-                    PG_CENTER_Y - PIECE_WIDTH);
+            return new Piece(PieceType.SPIECE, PG_CENTER_X - PIECE_WIDTH / 2, PG_CENTER_Y - PIECE_WIDTH);
         } else if (num == 6) {
-            return new Piece(PieceType.OPIECE,
-                    PG_CENTER_X - PIECE_WIDTH,
-                    PG_CENTER_Y - PIECE_WIDTH);
+            return new Piece(PieceType.OPIECE, PG_CENTER_X - PIECE_WIDTH, PG_CENTER_Y - PIECE_WIDTH);
         } else {
             return null;
         }

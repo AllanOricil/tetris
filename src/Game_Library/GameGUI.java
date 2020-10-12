@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library;
 
 import java.awt.Color;
@@ -10,10 +6,6 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public abstract class GameGUI implements Drawable {
 
     private Point pos;
@@ -25,21 +17,21 @@ public abstract class GameGUI implements Drawable {
     private static int counter = 0;
 
     public GameGUI() {
-        pos = new Point(0,0);
-        size = new Dimension(0,0);
+        pos = new Point(0, 0);
+        size = new Dimension(0, 0);
         backgroundColor = Color.WHITE;
 
         id = counter;
         counter++;
-        //System.out.println("IDAUX: " + counter);
+        // System.out.println("IDAUX: " + counter);
     }
 
     @Override
     public abstract void draw(Graphics2D g2d);// {
-        //DRAW THE BACKGROUND
-        //g2d.setColor(getBackgroundColor());
-        //g2d.fillRect(pos.x, pos.y, size.width, size.height);
-    //}
+    // DRAW THE BACKGROUND
+    // g2d.setColor(getBackgroundColor());
+    // g2d.fillRect(pos.x, pos.y, size.width, size.height);
+    // }
 
     public Point getPos() {
         return pos;

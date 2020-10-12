@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.tetris.indie.allan;
 
 import Game_Library.GameEntity;
@@ -13,11 +9,7 @@ import static org.tetris.indie.allan.Piece.PIECE_DIST_INTERN_LEFT;
 import static org.tetris.indie.allan.Piece.PIECE_DIST_INTERN_RIGHT;
 import static org.tetris.indie.allan.Piece.PIECE_WIDTH;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
-public class Block extends GameEntity{
+public class Block extends GameEntity {
 
     private int matrixPos;
     private Color color;
@@ -26,20 +18,13 @@ public class Block extends GameEntity{
     public void draw(Graphics2D g2d) {
         int x = getPos().getX();
         int y = getPos().getY();
-        
-        g2d.fillRect(x + PIECE_DIST_INTERN_LEFT,
-                y + PIECE_DIST_INTERN_LEFT,
-                PIECE_WIDTH - PIECE_DIST_INTERN_RIGHT,
+
+        g2d.fillRect(x + PIECE_DIST_INTERN_LEFT, y + PIECE_DIST_INTERN_LEFT, PIECE_WIDTH - PIECE_DIST_INTERN_RIGHT,
                 PIECE_WIDTH - PIECE_DIST_INTERN_RIGHT);
         g2d.setColor(Color.BLACK);
-        g2d.drawRect(x + PIECE_DIST_INTERN_LEFT,
-                y + PIECE_DIST_INTERN_LEFT,
-                PIECE_WIDTH - PIECE_DIST_INTERN_RIGHT,
+        g2d.drawRect(x + PIECE_DIST_INTERN_LEFT, y + PIECE_DIST_INTERN_LEFT, PIECE_WIDTH - PIECE_DIST_INTERN_RIGHT,
                 PIECE_WIDTH - PIECE_DIST_INTERN_RIGHT);
-        g2d.drawRoundRect(x, y, PIECE_WIDTH,
-                PIECE_WIDTH,
-                SQUARE_ARC_DIAMETER,
-                SQUARE_ARC_DIAMETER);
+        g2d.drawRoundRect(x, y, PIECE_WIDTH, PIECE_WIDTH, SQUARE_ARC_DIAMETER, SQUARE_ARC_DIAMETER);
     }
 
     public int getMatrixPos() {
@@ -60,7 +45,8 @@ public class Block extends GameEntity{
 
     @Override
     public void update() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
 }

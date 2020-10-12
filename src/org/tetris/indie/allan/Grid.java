@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.tetris.indie.allan;
 
 import Game_Library.Vector2D;
@@ -21,10 +17,6 @@ import static org.tetris.indie.allan.Configuration.TIME_TO_FIRM_PIECE;
 import java.awt.Dimension;
 import static org.tetris.indie.allan.Piece.PIECE_WIDTH;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class Grid extends GameEntity {
 
     private final List<Block> gridBlocks;
@@ -44,7 +36,7 @@ public class Grid extends GameEntity {
     public static int GRID_RIGHT;
     public static int SQUARE_ARC_DIAMETER;
 
-    public Grid(Tetris scene) {     
+    public Grid(Tetris scene) {
         setDepth(1);
         fixPiece = false;
         generator = new PieceGenerator();
@@ -58,35 +50,25 @@ public class Grid extends GameEntity {
 
     @Override
     public void draw(Graphics2D g2d) {
-        //DRAW THE NEXT PIECE
+        // DRAW THE NEXT PIECE
         generator.draw(g2d);
         g2d.setColor(new Color(150, 150, 150));
 
-        //DRAW THE GRID
+        // DRAW THE GRID
         for (int i = 0; i < NUM_BLOCKS_VERTICALLY; i++) {
             for (int j = 0; j < NUM_BLOCKS_HORIZONTALLY; j++) {
                 g2d.setColor(GRID_BACK_GROUND_COLOR);
-                g2d.fillRoundRect(GRID_LEFT + j * PIECE_WIDTH,
-                        GRID_TOP + i * PIECE_WIDTH,
-                        PIECE_WIDTH, PIECE_WIDTH,
-                        SQUARE_ARC_DIAMETER,
-                        SQUARE_ARC_DIAMETER);
+                g2d.fillRoundRect(GRID_LEFT + j * PIECE_WIDTH, GRID_TOP + i * PIECE_WIDTH, PIECE_WIDTH, PIECE_WIDTH,
+                        SQUARE_ARC_DIAMETER, SQUARE_ARC_DIAMETER);
                 g2d.setColor(Color.WHITE);
-                g2d.drawRoundRect(GRID_LEFT + j * PIECE_WIDTH,
-                        GRID_TOP + i * PIECE_WIDTH,
-                        PIECE_WIDTH, PIECE_WIDTH,
-                        SQUARE_ARC_DIAMETER,
-                        SQUARE_ARC_DIAMETER);
+                g2d.drawRoundRect(GRID_LEFT + j * PIECE_WIDTH, GRID_TOP + i * PIECE_WIDTH, PIECE_WIDTH, PIECE_WIDTH,
+                        SQUARE_ARC_DIAMETER, SQUARE_ARC_DIAMETER);
             }
         }
         g2d.setColor(Color.BLACK);
-        g2d.drawRoundRect(GRID_LEFT, GRID_TOP,
-                GRID_WIDTH,
-                GRID_HEIGHT,
-                SQUARE_ARC_DIAMETER,
-                SQUARE_ARC_DIAMETER);
+        g2d.drawRoundRect(GRID_LEFT, GRID_TOP, GRID_WIDTH, GRID_HEIGHT, SQUARE_ARC_DIAMETER, SQUARE_ARC_DIAMETER);
 
-        //DRAW BLOCKS THAT ARE IN THE GRID
+        // DRAW BLOCKS THAT ARE IN THE GRID
         gridBlocks.stream().forEach((b) -> {
             g2d.setColor(b.getColor());
             b.draw(g2d);
@@ -126,7 +108,7 @@ public class Grid extends GameEntity {
 
     public boolean colisionCheck() {
         double futureY;
-        //CHECK COLISION WITH THE BOTTOM OF THE GRID
+        // CHECK COLISION WITH THE BOTTOM OF THE GRID
         for (Block cb : current.getBlocks()) {
             futureY = cb.getPos().getY() + PIECE_WIDTH;
             if (futureY >= GRID_BOTTOM) {
@@ -134,7 +116,7 @@ public class Grid extends GameEntity {
             }
         }
 
-        //CHECK COLISION WITH OTHER PIECES FOR THE GOING DOWN MOVEMENT
+        // CHECK COLISION WITH OTHER PIECES FOR THE GOING DOWN MOVEMENT
         for (Block cb : current.getBlocks()) {
             futureY = cb.getPos().getY() + PIECE_WIDTH;
             for (int i = (gridBlocks.size() - 1); i >= 0; i--) {
@@ -157,8 +139,7 @@ public class Grid extends GameEntity {
             scene.setState(GameStateEnum.PAUSED);
         } else {
             setCurrent(generator.getNext());
-           
-            
+
             for (int i = 0; i < number_blocks_line.length; i++) {
                 if (number_blocks_line[i] == NUM_BLOCKS_HORIZONTALLY) {
                     deleteGridLine(i);
@@ -168,8 +149,8 @@ public class Grid extends GameEntity {
 
             if (count_combos > 0) {
                 if (count_combos != 1) {
-                    scene.getHud().getScore().setPoints(count_combos - 1 * POINTS_PER_COMBO
-                            + POINTS_PER_LINE * count_combos);
+                    scene.getHud().getScore()
+                            .setPoints(count_combos - 1 * POINTS_PER_COMBO + POINTS_PER_LINE * count_combos);
                 } else {
                     scene.getHud().getScore().setPoints(POINTS_PER_LINE * count_combos);
                 }
@@ -195,8 +176,7 @@ public class Grid extends GameEntity {
 
     private void moveGridDown(int deleteFirstIndex) {
         for (int i = deleteFirstIndex; i < gridBlocks.size(); i++) {
-            gridBlocks.get(i).getPos().setY(gridBlocks.get(i).getPos().getY()
-                    + PIECE_WIDTH);
+            gridBlocks.get(i).getPos().setY(gridBlocks.get(i).getPos().getY() + PIECE_WIDTH);
         }
     }
 
@@ -204,8 +184,7 @@ public class Grid extends GameEntity {
         List<Block> blocks = new ArrayList<>();
         for (int i = (NUM_BLOCKS_VERTICALLY); i >= 0; i--) {
             for (Block b : gridBlocks) {
-                if (b.getPos().getY() == ((GRID_TOP - PIECE_WIDTH)
-                        + (i * PIECE_WIDTH))) {
+                if (b.getPos().getY() == ((GRID_TOP - PIECE_WIDTH) + (i * PIECE_WIDTH))) {
                     blocks.add(b);
                     if (number_blocks_line[i] < NUM_BLOCKS_HORIZONTALLY) {
                         number_blocks_line[i]++;

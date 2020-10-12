@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library;
 
 import Game_Library.Graphical_User_Interface_Entities.GameMenu;
@@ -12,11 +8,6 @@ import java.util.List;
 import static org.tetris.indie.allan.TetrisButtonEntities.*;
 import static org.tetris.indie.allan.Menus.*;
 
-
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public class GameMenuManager implements Drawable {
 
     private final List<GameMenu> menus;
@@ -24,7 +15,7 @@ public class GameMenuManager implements Drawable {
 
     public GameMenuManager() {
         menus = new ArrayList<>();
-        
+
         gm1.addButton(b1);
         gm1.addButton(b2);
         gm2.addButton(b3);
@@ -32,7 +23,7 @@ public class GameMenuManager implements Drawable {
         gm3.addButton(b5);
         gm3.addButton(b6);
         gm3.addButton(b7);
-       
+
         menus.add(gm1);
         menus.add(gm4);
         menus.add(gm2);
@@ -47,7 +38,6 @@ public class GameMenuManager implements Drawable {
             menus.get(current).draw(g2d);
         }
     }
-
 
     public int getCurrent() {
         return current;

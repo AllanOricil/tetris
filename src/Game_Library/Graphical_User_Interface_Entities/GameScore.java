@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library.Graphical_User_Interface_Entities;
 
 import Game_Library.GameGUI;
@@ -17,11 +13,7 @@ import static org.tetris.indie.allan.Configuration.SCORE_NUMBER_COLOR;
 import static org.tetris.indie.allan.Tetris.FONT_NAMES;
 import static org.tetris.indie.allan.Tetris.FONT_NUMBERS;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
-public class GameScore extends GameGUI{
+public class GameScore extends GameGUI {
 
     private final int numberDigits = 6;
     private int score;
@@ -64,7 +56,7 @@ public class GameScore extends GameGUI{
         adv = metrics.stringWidth("SCORE");
         size = new Dimension(adv + 10, hgt + 2);
         g2d.drawString("SCORE", getPos().x - size.width, getPos().y);
-        //System.out.println("POSX:" + getPos().x + " POSY:"+ getPos().y);
+        // System.out.println("POSX:" + getPos().x + " POSY:"+ getPos().y);
         g2d.setColor(SCORE_NUMBER_COLOR);
         g2d.setFont(FONT_NUMBERS);
         metrics = g2d.getFontMetrics();
@@ -72,6 +64,5 @@ public class GameScore extends GameGUI{
         size.setSize(adv + 10, hgt + 2);
         g2d.drawString(s, getPos().x - size.width, getPos().y + size.height);
     }
-
 
 }

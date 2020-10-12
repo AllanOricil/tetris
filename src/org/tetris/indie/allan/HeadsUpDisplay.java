@@ -1,9 +1,4 @@
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.tetris.indie.allan;
 
 import Game_Library.Graphical_User_Interface_Entities.GamePlayerLevelCounter;
@@ -11,11 +6,7 @@ import Game_Library.Graphical_User_Interface_Entities.GameTimer;
 import Game_Library.Graphical_User_Interface_Entities.GameScore;
 import Game_Library.Graphical_User_Interface_Entities.GameHUD;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
-public class HeadsUpDisplay extends GameHUD{
+public class HeadsUpDisplay extends GameHUD {
 
     private final GameScore score;
     private final GameTimer timer;
@@ -29,7 +20,7 @@ public class HeadsUpDisplay extends GameHUD{
         getHudEntities().add(level);
         getHudEntities().add(timer);
     }
-    
+
     public GameScore getScore() {
         return score;
     }
@@ -41,6 +32,5 @@ public class HeadsUpDisplay extends GameHUD{
     public GamePlayerLevelCounter getLevel() {
         return level;
     }
-    
-    
+
 }

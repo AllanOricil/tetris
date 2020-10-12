@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.tetris.indie.allan;
 
 import java.awt.Color;
 
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
 public abstract class Configuration {
 
     /**
@@ -45,7 +37,7 @@ public abstract class Configuration {
 
     public final static int ADJUST_LEFT = -1;
     public final static int ADJUST_RIGHT = 1;
-    
+
     /**
      * Default score reward
      */

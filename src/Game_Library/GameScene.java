@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Game_Library;
 
 import Game_Library.Graphical_User_Interface_Entities.GameMenu;
@@ -11,12 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import org.tetris.indie.allan.PlayerInput;
 
-
-/**
- *
- * @author Allan Oricil - UNIFEI - Graduando em Engenharia de Computacao
- */
-public abstract class GameScene{
+public abstract class GameScene {
 
     private final List<GameEntity> entities;
     public PlayerInput player;
@@ -24,10 +15,10 @@ public abstract class GameScene{
     private String name;
     private List<GameCamera> cameras;
     private final int id;
-    
+
     private static int numGameScenes = 0;
-    
-    /** 
+
+    /**
      * Creates a scene
      */
     public GameScene() {
@@ -38,9 +29,10 @@ public abstract class GameScene{
         id = numGameScenes;
         numGameScenes++;
     }
-    
+
     /**
      * Creates a scene using a name
+     * 
      * @param name - Name of the scene
      */
     public GameScene(String name) {
@@ -52,19 +44,20 @@ public abstract class GameScene{
         id = numGameScenes;
         numGameScenes++;
     }
-    
+
     /**
      * Creates a scene using another scene
+     * 
      * @param gameScene - Game scene
      */
-    public GameScene(GameScene gameScene){
+    public GameScene(GameScene gameScene) {
         id = gameScene.getId();
         name = gameScene.getName();
         entities = gameScene.getEntities();
         gameState = gameScene.getState();
         cameras = gameScene.getCameras();
     }
-    
+
     public abstract void update();
 
     public void addEntity(GameEntity obj) {
